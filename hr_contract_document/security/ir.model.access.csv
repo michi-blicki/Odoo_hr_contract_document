@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_contract_template_user,hr.contract.template.user,model_hr_contract_template,hr_contract.group_hr_contract_user,1,0,0,0
+access_hr_contract_template_manager,hr.contract.template.manager,model_hr_contract_template,hr_contract.group_hr_contract_manager,1,1,1,1
+access_hr_contract_text_block_user,hr.contract.text.block.user,model_hr_contract_text_block,hr_contract.group_hr_contract_user,1,0,0,0
+access_hr_contract_text_block_manager,hr.contract.text.block.manager,model_hr_contract_text_block,hr_contract.group_hr_contract_manager,1,1,1,1
+access_hr_contract_document_user,hr.contract.document.user,model_hr_contract_document,hr_contract.group_hr_contract_user,1,1,1,0
+access_hr_contract_document_manager,hr.contract.document.manager,model_hr_contract_document,hr_contract.group_hr_contract_manager,1,1,1,1
+access_hr_contract_document_wizard_user,hr.contract.document.wizard.user,model_hr_contract_document_wizard,hr_contract.group_hr_contract_user,1,1,1,1
+access_hr_contract_document_wizard_manager,hr.contract.document.wizard.manager,model_hr_contract_document_wizard,hr_contract.group_hr_contract_manager,1,1,1,1

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_hr_contract_document_form" model="ir.ui.view">
+        <field name="name">hr.contract.document.form</field>
+        <field name="model">hr.contract.document</field>
+        <field name="arch" type="xml">
+            <form string="Contract Document">
+                <header>
+                    <button name="action_set_ready" string="Set Ready" type="object" 
+                            class="oe_highlight" invisible="state != 'draft'"/>
+                    <button name="action_set_signed" string="Mark as Signed" type="object" 
+                            class="oe_highlight" invisible="state != 'ready'"/>
+                    <button name="action_set_draft" string="Set to Draft" type="object" 
+                            invisible="state not in ['ready', 'cancelled']"/>
+                    <button name="action_cancel" string="Cancel" type="object" 
+                            invisible="state in ['signed', 'cancelled']"/>
+                    <button name="action_regenerate" string="Regenerate Content" type="object" 
+                            invisible="state == 'signed'"
+                            confirm="This will regenerate the document content from the template. Any manual changes will be lost. Continue?"/>
+                    <button name="action_print_document" string="Print" type="object" 
+                            icon="fa-print"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,ready,signed"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_contract" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-file-text">
+                            <span>View Contract</span>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <widget name="web_ribbon" title="Cancelled" bg_color="text-bg-secondary" invisible="state != 'cancelled'"/>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="contract_id" options="{'no_create': True}"/>
+                            <field name="employee_id" readonly="1"/>
+                            <field name="template_id" options="{'no_create': True}"/>
+                            <field name="template_version" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="language"/>
+                            <field name="document_date"/>
+                            <field name="signature_date"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Document Content" name="content">
+                            <field name="content" widget="html" 
+                                   options="{'collaborative': true, 'resizable': true, 'height': 500}"
+                                   readonly="state == 'signed'"/>
+                        </page>
+                        <page string="Signatures" name="signatures">
+                            <group>
+                                <group string="Employee Signature">
+                                    <field name="employee_signature" widget="image" 
+                                           options="{'size': [200, 100]}"
+                                           readonly="state == 'signed'"/>
+                                </group>
+                                <group string="Employer Signature">
+                                    <field name="employer_signature" widget="image" 
+                                           options="{'size': [200, 100]}"
+                                           readonly="state == 'signed'"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Additional notes or comments..."/>
+                        </page>
+                        <page string="Attachments" name="attachments">
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_hr_contract_document_tree" model="ir.ui.view">
+        <field name="name">hr.contract.document.tree</field>
+        <field name="model">hr.contract.document</field>
+        <field name="arch" type="xml">
+            <tree string="Contract Documents">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="contract_id"/>
+                <field name="template_id"/>
+                <field name="document_date"/>
+                <field name="state" widget="badge" 
+                       decoration-success="state == 'signed'"
+                       decoration-info="state == 'ready'"
+                       decoration-warning="state == 'draft'"
+                       decoration-muted="state == 'cancelled'"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_hr_contract_document_search" model="ir.ui.view">
+        <field name="name">hr.contract.document.search</field>
+        <field name="model">hr.contract.document</field>
+        <field name="arch" type="xml">
+            <search string="Contract Documents">
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="contract_id"/>
+                <field name="template_id"/>
+                <filter string="Draft" name="draft" domain="[('state', '=', 'draft')]"/>
+                <filter string="Ready" name="ready" domain="[('state', '=', 'ready')]"/>
+                <filter string="Signed" name="signed" domain="[('state', '=', 'signed')]"/>
+                <filter string="Cancelled" name="cancelled" domain="[('state', '=', 'cancelled')]"/>
+                <separator/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employee" name="group_employee" context="{'group_by': 'employee_id'}"/>
+                    <filter string="Contract" name="group_contract" context="{'group_by': 'contract_id'}"/>
+                    <filter string="Template" name="group_template" context="{'group_by': 'template_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Document Date" name="group_date" context="{'group_by': 'document_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_contract_document" model="ir.actions.act_window">
+        <field name="name">Contract Documents</field>
+        <field name="res_model">hr.contract.document</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No contract documents yet
+            </p>
+            <p>
+                Contract documents are generated from templates and contain the actual contract text
+                with all placeholders replaced with real data.
+            </p>
+        </field>
+    </record>
+
+    <!-- Report Template -->
+    <record id="report_contract_document_template" model="ir.ui.view">
+        <field name="name">report.contract.document</field>
+        <field name="model">hr.contract.document</field>
+        <field name="arch" type="xml">
+            <t t-name="hr_contract_document.report_contract_document">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="web.html_container">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                                <h2 t-field="doc.name"/>
+                                <div class="row mt32 mb32">
+                                    <div class="col-6">
+                                        <strong>Employee:</strong> <span t-field="doc.employee_id.name"/><br/>
+                                        <strong>Contract:</strong> <span t-field="doc.contract_id.name"/><br/>
+                                    </div>
+                                    <div class="col-6">
+                                        <strong>Document Date:</strong> <span t-field="doc.document_date"/><br/>
+                                        <strong>Template:</strong> <span t-field="doc.template_id.name"/> (v<span t-field="doc.template_version"/>)<br/>
+                                    </div>
+                                </div>
+                                <div t-field="doc.content"/>
+                                <div class="row mt64" t-if="doc.employee_signature or doc.employer_signature">
+                                    <div class="col-6" t-if="doc.employee_signature">
+                                        <p><strong>Employee Signature:</strong></p>
+                                        <img t-att-src="'data:image/png;base64,%s' % doc.employee_signature.decode('utf-8')" 
+                                             style="max-height: 100px;"/>
+                                    </div>
+                                    <div class="col-6" t-if="doc.employer_signature">
+                                        <p><strong>Employer Signature:</strong></p>
+                                        <img t-att-src="'data:image/png;base64,%s' % doc.employer_signature.decode('utf-8')" 
+                                             style="max-height: 100px;"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </field>
+    </record>
+
+    <!-- Report Action -->
+    <record id="action_report_contract_document" model="ir.actions.report">
+        <field name="name">Print Contract Document</field>
+        <field name="model">hr.contract.document</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_contract_document.report_contract_document</field>
+        <field name="report_file">hr_contract_document.report_contract_document</field>
+        <field name="binding_model_id" ref="model_hr_contract_document"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

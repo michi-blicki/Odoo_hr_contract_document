@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_hr_contract_text_block_form" model="ir.ui.view">
+        <field name="name">hr.contract.text.block.form</field>
+        <field name="model">hr.contract.text.block</field>
+        <field name="arch" type="xml">
+            <form string="Contract Text Block">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="e.g. Confidentiality Clause"/>
+                            <field name="code" placeholder="e.g. confidentiality_clause"/>
+                            <field name="category"/>
+                        </group>
+                        <group>
+                            <field name="language"/>
+                            <field name="sequence"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="usage_count"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Describe the purpose of this text block..."/>
+                    </group>
+                    <notebook>
+                        <page string="Content" name="content">
+                            <field name="content" widget="html" options="{'collaborative': true, 'resizable': true, 'height': 400}"/>
+                        </page>
+                        <page string="Used in Templates" name="templates">
+                            <field name="template_ids" readonly="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="version"/>
+                                    <field name="template_type"/>
+                                    <field name="language"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_hr_contract_text_block_tree" model="ir.ui.view">
+        <field name="name">hr.contract.text.block.tree</field>
+        <field name="model">hr.contract.text.block</field>
+        <field name="arch" type="xml">
+            <tree string="Contract Text Blocks">
+                <field name="sequence" widget="handle"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="category"/>
+                <field name="language"/>
+                <field name="usage_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_hr_contract_text_block_search" model="ir.ui.view">
+        <field name="name">hr.contract.text.block.search</field>
+        <field name="model">hr.contract.text.block</field>
+        <field name="arch" type="xml">
+            <search string="Contract Text Blocks">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="category"/>
+                <field name="language"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Headers" name="header" domain="[('category', '=', 'header')]"/>
+                <filter string="Clauses" name="clause" domain="[('category', '=', 'clause')]"/>
+                <filter string="Conditions" name="condition" domain="[('category', '=', 'condition')]"/>
+                <filter string="Footers" name="footer" domain="[('category', '=', 'footer')]"/>
+                <filter string="Signatures" name="signature" domain="[('category', '=', 'signature')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Category" name="group_category" context="{'group_by': 'category'}"/>
+                    <filter string="Language" name="group_language" context="{'group_by': 'language'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_contract_text_block" model="ir.actions.act_window">
+        <field name="name">Text Blocks</field>
+        <field name="res_model">hr.contract.text.block</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first text block
+            </p>
+            <p>
+                Text blocks are reusable pieces of text that can be included in contract templates.
+                Reference them in templates using ${text_block.code}.
+            </p>
+        </field>
+    </record>
+</odoo>

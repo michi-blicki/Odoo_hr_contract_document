@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Main Menu under HR/Contracts -->
+    <menuitem id="menu_hr_contract_document_root"
+              name="Contract Documents"
+              parent="hr_contract.menu_hr_contract_root"
+              sequence="20"/>
+    
+    <!-- Templates Menu -->
+    <menuitem id="menu_hr_contract_template"
+              name="Templates"
+              parent="menu_hr_contract_document_root"
+              action="action_hr_contract_template"
+              sequence="10"/>
+    
+    <!-- Text Blocks Menu -->
+    <menuitem id="menu_hr_contract_text_block"
+              name="Text Blocks"
+              parent="menu_hr_contract_document_root"
+              action="action_hr_contract_text_block"
+              sequence="20"/>
+    
+    <!-- Documents Menu -->
+    <menuitem id="menu_hr_contract_document"
+              name="Documents"
+              parent="menu_hr_contract_document_root"
+              action="action_hr_contract_document"
+              sequence="30"/>
+</odoo>
