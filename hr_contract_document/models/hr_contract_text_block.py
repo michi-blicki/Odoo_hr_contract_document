@@ -106,6 +106,8 @@ class HrContractTextBlock(models.Model):
     def _check_code(self):
         """Validate code format"""
         for record in self:
+            if not record.code:
+                raise ValidationError(_('Text block code is required.'))
             if not record.code.replace('_', '').isalnum():
                 raise ValidationError(_(
                     'Text block code must contain only alphanumeric characters and underscores.'

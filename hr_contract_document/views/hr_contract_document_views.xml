@@ -177,12 +177,12 @@
                                 <div class="row mt64" t-if="doc.employee_signature or doc.employer_signature">
                                     <div class="col-6" t-if="doc.employee_signature">
                                         <p><strong>Employee Signature:</strong></p>
-                                        <img t-att-src="'data:image/png;base64,%s' % doc.employee_signature.decode('utf-8')" 
+                                        <img t-att-src="'data:image/png;base64,%s' % doc.employee_signature" 
                                              style="max-height: 100px;"/>
                                     </div>
                                     <div class="col-6" t-if="doc.employer_signature">
                                         <p><strong>Employer Signature:</strong></p>
-                                        <img t-att-src="'data:image/png;base64,%s' % doc.employer_signature.decode('utf-8')" 
+                                        <img t-att-src="'data:image/png;base64,%s' % doc.employer_signature" 
                                              style="max-height: 100px;"/>
                                     </div>
                                 </div>

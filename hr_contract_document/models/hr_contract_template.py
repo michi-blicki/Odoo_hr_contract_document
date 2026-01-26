@@ -184,10 +184,19 @@ class HrContractTemplate(models.Model):
         # Employee fields
         if contract.employee_id:
             employee = contract.employee_id
+            
+            # Format birthday safely
+            birthday_str = ''
+            if employee.birthday:
+                try:
+                    birthday_str = employee.birthday.strftime('%d.%m.%Y')
+                except (AttributeError, ValueError):
+                    birthday_str = str(employee.birthday) if employee.birthday else ''
+            
             values.update({
                 'employee.name': employee.name or '',
                 'employee.identification_id': employee.identification_id or '',
-                'employee.birthday': employee.birthday.strftime('%d.%m.%Y') if employee.birthday else '',
+                'employee.birthday': birthday_str,
                 'employee.work_email': employee.work_email or '',
                 'employee.mobile_phone': employee.mobile_phone or '',
             })
@@ -203,10 +212,25 @@ class HrContractTemplate(models.Model):
                 })
         
         # Contract fields
+        # Format dates safely
+        date_start_str = ''
+        if contract.date_start:
+            try:
+                date_start_str = contract.date_start.strftime('%d.%m.%Y')
+            except (AttributeError, ValueError):
+                date_start_str = str(contract.date_start) if contract.date_start else ''
+        
+        date_end_str = ''
+        if contract.date_end:
+            try:
+                date_end_str = contract.date_end.strftime('%d.%m.%Y')
+            except (AttributeError, ValueError):
+                date_end_str = str(contract.date_end) if contract.date_end else ''
+        
         values.update({
             'contract.name': contract.name or '',
-            'contract.date_start': contract.date_start.strftime('%d.%m.%Y') if contract.date_start else '',
-            'contract.date_end': contract.date_end.strftime('%d.%m.%Y') if contract.date_end else '',
+            'contract.date_start': date_start_str,
+            'contract.date_end': date_end_str,
             'contract.wage': f"{contract.wage:,.2f}" if contract.wage else '0.00',
             'contract.job_id.name': contract.job_id.name if contract.job_id else '',
             'contract.department_id.name': contract.department_id.name if contract.department_id else '',
