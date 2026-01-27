@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================================== -->
+    <!-- QWeb Bericht: HR Contract Document                         -->
+    <!-- ========================================================== -->
+
+    <template id="report_contract_document">
+        <t t-call="web.html_container">
+            <link rel="stylesheet" href="/hr_contract_document/static/src/css/contract_report.css"/>
+            <t t-foreach="docs" t-as="contract">
+                <t t-set="template" t-value="contract.document_template_id"/>
+                <t t-set="company" t-value="contract.company_id"/>
+
+                <!-- Header Section -->
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <!-- Company Header -->
+                    <div class="contract-header">
+                        <strong t-esc="company.name"/>
+                        <t t-if="company.street">
+                            <br/><t t-esc="company.street"/>
+                        </t>
+                        <t t-if="company.city">
+                            <br/><t t-esc="company.city"/> - <t t-esc="company.country_id.name"/>
+                        </t>
+                        <br/>
+                        <strong>Arbeitsvertrag / Employment Contract</strong>
+                        <hr/>
+                    </div>
+
+                    <!-- General Contract Metadata -->
+                    <div class="contract-meta mt16 mb16">
+                        <p>
+                            <strong>Mitarbeiter:</strong>
+                            <t t-esc="contract.employee_id.name"/>
+                            <br/>
+                            <strong>Position:</strong>
+                            <t t-esc="contract.job_id.name"/>
+                            <br/>
+                            <strong>Beginn:</strong>
+                            <t t-esc="contract.date_start"/>
+                            <t t-if="contract.date_end">
+                                <br/><strong>Ende:</strong>
+                                <t t-esc="contract.date_end"/>
+                            </t>
+                        </p>
+                        <hr/>
+                    </div>
+
+                    <!-- Dynamic Contract Body -->
+                    <div class="contract-body mt32">
+                        <!-- CSS Integration -->
+                        <t t-if="template.css_style">
+                            <style type="text/css" t-raw="template.css_style"/>
+                        </t>
+
+                        <!-- Rendered Snippets -->
+                        <t t-foreach="template.snippet_ids.sorted('sequence')" t-as="snippet">
+                            <div class="snippet-block mb32">
+                                <h4 t-esc="snippet.name"/>
+                                <div t-raw="snippet._render_placeholder_content({'employee': contract.employee_id, 'contract': contract})"/>
+                            </div>
+                        </t>
+
+                        <!-- Attachments Section -->
+                        <t t-if="template.attachment_ids">
+                            <div class="contract-attachments mt40">
+                                <h4>Angehängte Dokumente / Attachments</h4>
+                                <ul>
+                                    <t t-foreach="template.attachment_ids" t-as="att">
+                                        <li>
+                                            <t t-esc="att.name"/> 
+                                            <t t-if="att.version">(v<t t-esc="att.version"/>)</t>
+                                            <t t-if="att.language">[<t t-esc="att.language"/>]</t>
+                                        </li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </t>
+                    </div>
+
+                    <!-- Signature Section -->
+                    <div class="contract-signature mt64">
+                        <hr/>
+                        <h4>Unterschriften / Signatures</h4>
+                        <t t-if="template.signer_rule_ids">
+                            <table class="table table-condensed mt8">
+                                <thead>
+                                    <tr>
+                                        <th>Rolle</th>
+                                        <th>Person</th>
+                                        <th>Datum</th>
+                                        <th>Unterschrift</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="template.signer_rule_ids.sorted('sequence')" t-as="rule">
+                                        <tr>
+                                            <td><t t-esc="rule.name"/></td>
+                                            <td>
+                                                <!-- attempt dynamic resolve -->
+                                                <t t-set="signer_obj" t-value="contract.employee_id"/>
+                                                <t t-esc="signer_obj.user_id.name or ''"/>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>__________________________</td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </t>
+                        <t t-if="not template.signer_rule_ids">
+                            <p>Signaturfelder werden manuell ergänzt.</p>
+                        </t>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="footer mt16">
+                        <hr/>
+                        <p style="font-size: 10px; color: #777;">
+                            Generiert am 
+                            <t t-esc="format_datetime(time.strftime('%Y-%m-%d %H:%M:%S'))"/>
+                            mit Vorlage-Version <t t-esc="template.version"/>.
+                        </p>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- ========================================================== -->
+    <!-- Report Definition (ir.actions.report)                       -->
+    <!-- ========================================================== -->
+
+    <report
+        id="action_report_contract_document"
+        model="hr.contract"
+        string="HR Contract Document"
+        report_type="qweb-pdf"
+        name="hr_contract_document.report_contract_document"
+        file="hr_contract_document.report_contract_document"
+    />
+
+</odoo>

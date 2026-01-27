@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================================== -->
+    <!-- HR Contract Document Menu Structure                        -->
+    <!-- ========================================================== -->
+
+    <menuitem id="menu_hr_contract_document_root"
+              name="Contract Documents"
+              parent="hr_contract.hr_menu_contract_root"
+              sequence="20"
+              icon="fa-file-text-o"/>
+
+    <menuitem id="menu_hr_contract_templates"
+              name="Templates"
+              parent="menu_hr_contract_document_root"
+              action="action_hr_contract_document_template"/>
+
+    <menuitem id="menu_hr_contract_snippets"
+              name="Text Snippets"
+              parent="menu_hr_contract_document_root"
+              action="action_hr_contract_document_snippet"/>
+
+    <menuitem id="menu_hr_contract_attachments"
+              name="Attachments"
+              parent="menu_hr_contract_document_root"
+              action="action_hr_contract_document_attachment"/>
+
+    <menuitem id="menu_hr_contract_signer_rules"
+              name="Signer Rules"
+              parent="menu_hr_contract_document_root"
+              action="action_hr_contract_document_signer_rule"/>
+</odoo>

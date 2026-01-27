@@ -1,0 +1,23 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+# ==================================================================
+# Access Rights for HR Contract Document Models
+# ==================================================================
+hr_contract_document_template_specialist,hr_contract_document_template_specialist,model_hr_contract_document_template,hr_contract_document.group_hr_contract_document_specialist,1,1,1,1
+hr_contract_document_snippet_specialist,hr_contract_document_snippet_specialist,model_hr_contract_document_snippet,hr_contract_document.group_hr_contract_document_specialist,1,1,1,1
+hr_contract_document_attachment_specialist,hr_contract_document_attachment_specialist,model_hr_contract_document_attachment,hr_contract_document.group_hr_contract_document_specialist,1,1,1,1
+hr_contract_document_signer_rule_specialist,hr_contract_document_signer_rule_specialist,model_hr_contract_document_signer_rule,hr_contract_document.group_hr_contract_document_specialist,1,1,1,1
+
+# HR Admin: can create from templates, read/view everything
+hr_contract_document_template_admin,hr_contract_document_template_admin,model_hr_contract_document_template,hr_contract_document.group_hr_contract_document_admin,1,0,0,0
+hr_contract_document_snippet_admin,hr_contract_document_snippet_admin,model_hr_contract_document_snippet,hr_contract_document.group_hr_contract_document_admin,1,0,0,0
+hr_contract_document_attachment_admin,hr_contract_document_attachment_admin,model_hr_contract_document_attachment,hr_contract_document.group_hr_contract_document_admin,1,0,0,0
+hr_contract_document_signer_rule_admin,hr_contract_document_signer_rule_admin,model_hr_contract_document_signer_rule,hr_contract_document.group_hr_contract_document_admin,1,0,0,0
+hr_contract_create_wizard_admin,hr_contract_create_wizard_admin,model_hr_contract_create_wizard,hr_contract_document.group_hr_contract_document_admin,1,1,1,0
+
+# HR User: general read access
+hr_contract_document_template_user,hr_contract_document_template_user,model_hr_contract_document_template,hr_contract_document.group_hr_contract_document_user,1,0,0,0
+hr_contract_document_snippet_user,hr_contract_document_snippet_user,model_hr_contract_document_snippet,hr_contract_document.group_hr_contract_document_user,1,0,0,0
+hr_contract_document_attachment_user,hr_contract_document_attachment_user,model_hr_contract_document_attachment,hr_contract_document.group_hr_contract_document_user,1,0,0,0
+
+# Signer Role: read-only access for signing
+hr_contract_document_template_signer,hr_contract_document_template_signer,model_hr_contract_document_template,hr_contract_document.group_hr_contract_document_signer,1,0,0,0

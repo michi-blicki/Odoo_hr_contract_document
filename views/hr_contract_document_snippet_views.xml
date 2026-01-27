@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================================== -->
+    <!-- HR Contract Document Snippet Views                         -->
+    <!-- ========================================================== -->
+
+    <record id="view_hr_contract_document_snippet_tree" model="ir.ui.view">
+        <field name="name">hr.contract.document.snippet.tree</field>
+        <field name="model">hr.contract.document.snippet</field>
+        <field name="arch" type="xml">
+            <tree default_order="sequence">
+                <field name="name"/>
+                <field name="sequence"/>
+                <field name="is_mandatory"/>
+                <field name="version"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hr_contract_document_snippet_form" model="ir.ui.view">
+        <field name="name">hr.contract.document.snippet.form</field>
+        <field name="model">hr.contract.document.snippet</field>
+        <field name="arch" type="xml">
+            <form string="Text Snippet">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,review,active,archived"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="sequence"/>
+                            <field name="is_mandatory"/>
+                            <field name="version" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="template_id"/>
+                            <field name="company_id" readonly="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="content_html" widget="html"/>
+                    </group>
+                    <group>
+                        <field name="placeholder_fields" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hr_contract_document_snippet" model="ir.actions.act_window">
+        <field name="name">Text Snippets</field>
+        <field name="res_model">hr.contract.document.snippet</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================================== -->
+    <!-- SECURITY GROUP DEFINITIONS                                 -->
+    <!-- ========================================================== -->
+
+    <!-- Root group parented to hr.group_hr_user -->
+    <record id="group_hr_contract_document_user" model="res.groups">
+        <field name="name">HR Contract Document User</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="comment">Base access to HR contract document structures</field>
+        <field name="implied_ids" eval="[(4, ref('hr_contract.group_hr_user'))]"/>
+    </record>
+
+    <!-- HR Document Specialist -->
+    <record id="group_hr_contract_document_specialist" model="res.groups">
+        <field name="name">HR Contract Document Specialist</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="implied_ids" eval="[(4, ref('group_hr_contract_document_user'))]"/>
+        <field name="comment">Full rights to manage templates, snippets, attachments</field>
+    </record>
+
+    <!-- HR Document Administrator -->
+    <record id="group_hr_contract_document_admin" model="res.groups">
+        <field name="name">HR Contract Document Admin</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="implied_ids" eval="[(4, ref('group_hr_contract_document_specialist'))]"/>
+        <field name="comment">Can create contracts from templates; cannot modify templates</field>
+    </record>
+
+    <!-- HR Contract Signer -->
+    <record id="group_hr_contract_document_signer" model="res.groups">
+        <field name="name">Contract Document Signer</field>
+        <field name="category_id" ref="base.module_category_human_resources"/>
+        <field name="implied_ids" eval="[(4, ref('group_hr_contract_document_user'))]"/>
+        <field name="comment">Read-only access to printed and signed contract documents</field>
+    </record>
+
+</odoo>
