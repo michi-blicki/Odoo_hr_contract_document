@@ -30,7 +30,7 @@
     # Issuer Specification
     'author': "Michael Blickenstorfer",
     'website': "https://www.blicki.ch",
-    'license': "AGPL-3",
+    'license': "LGPL-3",
     #'price': 120.00,
     #'currency': "CHF",
 
