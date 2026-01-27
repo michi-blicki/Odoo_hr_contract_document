@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Odoo HR Contract Document Management</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #f9f9fb;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .container {
+            max-width: 980px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px 60px;
+            border-radius: 8px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 160px;
+        }
+        .highlight {
+            color: #875A7B;
+        }
+        .features ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        .screenshots img {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            color: #777;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        .tagline {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 5px;
+            color: #555;
+        }
+        .section {
+            margin-top: 40px;
+        }
+        .contact-table {
+            width: 100%;
+        }
+        .contact-table td {
+            padding: 6px;
+            vertical-align: top;
+        }
+        code {
+            background-color: #f0f0f0;
+            border-radius: 3px;
+            padding: 2px 4px;
+            color: #c7254e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+        <img src="odoo_logo.png" alt="Odoo Logo">
+    </div>
+
+    <h1>HR Contract Document Management</h1>
+    <p class="tagline">
+        <strong>Automated Employment Contract Document Workflow</strong><br>
+        for <span class="highlight">Odoo HR & Contracts</span>.
+    </p>
+
+    <div class="section">
+        <h2>💡 Overview</h2>
+        <p>
+            This add‑on extends Odoo’s core <strong>hr_contract</strong> module with a 
+            professional document management system for employment contracts.  
+            It provides structured templates, modular text snippets, version tracking, and 
+            dynamic PDF generation directly from the employee record.
+        </p>
+    </div>
+
+    <div class="section features">
+        <h2>✨ Key Features</h2>
+        <ul>
+            <li><strong>Dynamic Contract Templates</strong> with placeholders like <code>${employee_name}</code> or <code>${contract_wage}</code></li>
+            <li>Editable <strong>Snippets</strong> as reusable text blocks validated against template placeholders</li>
+            <li><strong>Attachments</strong> – manage company and language‑specific documents</li>
+            <li>Configurable <strong>Signer Rules</strong> (e.g., HR Manager, Supervisor)</li>
+            <li>Wizard for <strong>Interactive PDF Generation</strong></li>
+            <li>Rich <strong>Access Control</strong>: HR User, Specialist, Admin & Signer roles</li>
+            <li>Multi‑company support and audit‑ready design</li>
+            <li>Integrated <strong>QWeb report</strong> for printable contract documents</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🧑‍💼 Who Is It For?</h2>
+        <p>
+            Designed for HR departments, legal teams, and organizations that 
+            require <strong>efficient, secure, and automated</strong> workflow for contract generation and record keeping.
+        </p>
+    </div>
+
+    <div class="section screenshots">
+        <h2>🖼️ Example Screens</h2>
+        <p>All views and reports are fully customizable to match your company branding.</p>
+        <img src="screenshot_template_form.png" alt="Template Form View Screenshot">
+        <img src="screenshot_contract_pdf.png" alt="Contract PDF Screenshot">
+    </div>
+
+    <div class="section">
+        <h2>🚀 Technical Info</h2>
+        <ul>
+            <li>Supported Versions: <strong>Odoo 18 Community & Enterprise</strong></li>
+            <li>Requirements: Python 3.11+, PostgreSQL 15+</li>
+            <li>Depends on: <code>hr_contract</code>, <code>mail</code>, <code>web</code></li>
+            <li>License: <code>LGPL‑v3</code> (Open Source, Commercial Friendly)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🔒 Security & Roles</h2>
+        <ul>
+            <li><strong>HR User:</strong> Read access to templates and generated contracts</li>
+            <li><strong>HR Specialist:</strong> Full management of templates, snippets, attachments</li>
+            <li><strong>HR Admin:</strong> Contract generation and signing management</li>
+            <li><strong>Signer:</strong> Read‑only access for signing process</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📦 Installation Steps</h2>
+        <p>
+            1️⃣ Download or clone into your addons folder:<br>
+            <code>odoo/addons/hr_contract_document/</code><br><br>
+            2️⃣ Activate Developer Mode in Odoo → Update App List.<br>
+            3️⃣ Search for <strong>“HR Contract Document Management”</strong> and click <strong>Install</strong>.<br><br>
+            4️⃣ After installation, access via menu:<br>
+            <code>Human Resources → Contract Documents</code>
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>⚙️ Extensibility</h2>
+        <ul>
+            <li>Custom placeholders and data render logic (extend Python model)</li>
+            <li>Additional QWeb or PDF report layouts</li>
+            <li>Integration with Odoo Sign or external signature platforms</li>
+            <li>Fully translatable (multi‑language ready)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>📞 Contact & Support</h2>
+        <table class="contact-table">
+            <tr>
+                <td><strong>Developer:</strong></td>
+                <td>Michael Blickenstorfer</td>
+            </tr>
+            <tr>
+                <td><strong>Website:</strong></td>
+                <td><a href="https://github.com/michi-blicki/hr_contract_document"
+                       target="_blank">https://github.com/michi-blicki/hr_contract_document</a></td>
+            </tr>
+            <tr>
+                <td><strong>Support:</strong></td>
+                <td>This is a community-driven open source project. For support, please open an issue on the GitHub repository.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        © 2026 Your Company – HR Contract Document Management for Odoo.<br>
+        Built for secure and automated enterprise HR workflows.
+    </div>
+</div>
+
+</body>
+</html>
