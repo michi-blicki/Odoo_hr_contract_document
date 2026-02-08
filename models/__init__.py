@@ -4,3 +4,5 @@ from . import hr_contract_document_snippet
 from . import hr_contract_document_attachment
 from . import hr_contract_document_signer_rule
 from . import hr_contract_document_wizard
+from . import hr_contract_extension
+

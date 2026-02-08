@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="hr_contract_document.SummernoteEditorField" owl="1">
+        <div class="summernote-editor-container">
+            <textarea 
+                t-ref="content"
+                class="summernote-editor"
+                t-att-id="state.editorId"
+                t-att-value="value"
+                style="display: none;">
+            </textarea>
+        </div>
+    </t>
+
+</templates>

@@ -3,42 +3,46 @@
     <!-- ========================================================== -->
     <!-- Wizard: Contract Creation from Template                    -->
     <!-- ========================================================== -->
+    <data>
+    
+        <record id="view_hr_contract_create_wizard_form" model="ir.ui.view">
+            <field name="name">hr.contract.create.wizard.form</field>
+            <field name="model">hr.contract.create.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Generate Contract Document" version="7.1">
+                    <group>
+                        <field name="template_id" required="1"/>
+                        <field name="contract_id" required="1"/>
+                    </group>
 
-    <record id="view_hr_contract_create_wizard_form" model="ir.ui.view">
-        <field name="name">hr.contract.create.wizard.form</field>
-        <field name="model">hr.contract.create.wizard</field>
-        <field name="arch" type="xml">
-            <form string="Generate Contract Document" version="7.1">
-                <group>
-                    <field name="template_id" required="1"/>
-                    <field name="contract_id" required="1"/>
-                </group>
+                    <notebook>
+                        <page string="Optional Snippets">
+                            <field name="optional_snippet_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Optional Attachments">
+                            <field name="optional_attachment_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
 
-                <notebook>
-                    <page string="Optional Snippets">
-                        <field name="optional_snippet_ids" widget="many2many_tags"/>
-                    </page>
-                    <page string="Optional Attachments">
-                        <field name="optional_attachment_ids" widget="many2many_tags"/>
-                    </page>
-                </notebook>
+                    <footer>
+                        <button name="action_generate_contract_pdf"
+                                string="Generate PDF"
+                                type="object"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
 
-                <footer>
-                    <button name="action_generate_contract_pdf"
-                            string="Generate PDF"
-                            type="object"
-                            class="btn-primary"/>
-                    <button string="Cancel" class="btn-secondary" special="cancel"/>
-                </footer>
-            </form>
-        </field>
-    </record>
+        <!-- Optional Action to open from menu or button -->
+        <record id="action_hr_contract_create_wizard" model="ir.actions.act_window">
+            <field name="name">Generate Contract</field>
+            <field name="res_model">hr.contract.create.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    
+    </data>
 
-    <!-- Optional Action to open from menu or button -->
-    <record id="action_hr_contract_create_wizard" model="ir.actions.act_window">
-        <field name="name">Generate Contract</field>
-        <field name="res_model">hr.contract.create.wizard</field>
-        <field name="view_mode">form</field>
-        <field name="target">new</field>
-    </record>
 </odoo>

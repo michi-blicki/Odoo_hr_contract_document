@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ========================================================== -->
+    <!-- HR Contract Form View Extension                            -->
+    <!-- ========================================================== -->
+    <data>
+    
+        <!-- Extend hr.contract form view to add document template field -->
+        <record id="view_hr_contract_form_extension" model="ir.ui.view">
+            <field name="name">hr.contract.form.extension</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                
+                <!-- Add document template field below contract_type_id -->
+                <xpath expr="//field[@name='contract_type_id']" position="after">
+                    <field name="document_template_id" 
+                           options="{'no_open': False}"
+                           domain="[('state', '=', 'active'), ('company_id', '=', company_id)]"
+                           groups="hr_contract_document.group_hr_contract_document_admin,hr_contract_document.group_hr_contract_document_specialist"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_hr_employee_form_extension" model="ir.ui.view">
+            <field name="name">hr.employee.form.extension</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <!-- Add action button to generate PDF document -->
+                <xpath expr="//header" position="inside">
+                    <button name="action_generate_contract_document" 
+                            string="Generate Contract Document" 
+                            type="object"
+                            class="oe_highlight"
+                            invisible="not document_template_id"
+                            groups="hr_contract_document.group_hr_contract_document_admin"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+
+</odoo>

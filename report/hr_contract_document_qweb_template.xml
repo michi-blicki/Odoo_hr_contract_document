@@ -102,7 +102,7 @@
                                                 <t t-set="signer_obj" t-value="contract.employee_id"/>
                                                 <t t-esc="signer_obj.user_id.name or ''"/>
                                             </td>
-                                            <td>&nbsp;</td>
+                                            <td> </td>
                                             <td>__________________________</td>
                                         </tr>
                                     </t>

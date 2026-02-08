@@ -38,7 +38,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Human Resources/Employees',
-    'version': '18.0.0.1.0',
+    'version': '18.0.0.4.0',
     'application': True,
     'auto_install': False,
     'installable': True,
@@ -54,22 +54,24 @@
 
     # always loaded
     'data': [
-        'security/hr_contract_document_group.xml',
+        'security/hr_contract_document_groups.xml',
         'security/ir.model.access.csv',
         'security/ir_rule.hr_contract_document.xml',
         'views/contract_document_menu.xml',
         'views/hr_contract_document_template_views.xml',
         'views/hr_contract_document_snippet_views.xml',
-        'views/hr_contract_document_attachments_views.xml',
-        'views/hr_contract_document_signer_rules_views.xml',
+        'views/hr_contract_document_attachment_views.xml',
+        'views/hr_contract_document_signer_rule_views.xml',
         'views/hr_contract_document_wizard_views.xml',
+        'views/hr_contract_document_form_extension.xml',
         'report/hr_contract_document_qweb_template.xml',
     ],
 
     'assets': {
         'web.assets_backend': [
-            'hr_contract_document/static/src/js/editor_placeholder_dropdown.js',
-            'hr_contract_document/staic/src/css/contract_report.css',
+            'hr_contract_document/static/src/js/summernote_editor.js',
+            'hr_contract_document/static/src/xml/summernote_editor.xml',
+            'hr_contract_document/static/src/css/contract_report.css',
         ],
     },
 
