@@ -16,7 +16,7 @@
                 <xpath expr="//field[@name='contract_type_id']" position="after">
                     <field name="document_template_id" 
                            options="{'no_open': False}"
-                           domain="[('state', '=', 'active'), ('company_id', '=', company_id)]"
+                              domain="[('state', '=', 'active'), '|', ('company_ids', '=', False), ('company_ids', 'in', [company_id])]"
                            groups="hr_contract_document.group_hr_contract_document_admin,hr_contract_document.group_hr_contract_document_specialist"/>
                 </xpath>
             </field>
@@ -25,7 +25,7 @@
         <record id="view_hr_employee_form_extension" model="ir.ui.view">
             <field name="name">hr.employee.form.extension</field>
             <field name="model">hr.contract</field>
-            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
             <field name="arch" type="xml">
                 <!-- Add action button to generate PDF document -->
                 <xpath expr="//header" position="inside">

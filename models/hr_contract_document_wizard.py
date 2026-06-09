@@ -25,7 +25,7 @@ class HrContractCreateWizard(models.TransientModel):
         if template.state != "active":
             raise ValidationError(_("The selected template is not active."))
 
-        template.validate_placeholders()
+        template.validate_placeholders(contract=contract)
         html_content = template._render_template_content(contract)
         pdf = self.env["ir.actions.report"]._render_qweb_pdf(
             "hr_contract_document.report_contract_document",

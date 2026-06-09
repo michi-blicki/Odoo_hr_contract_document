@@ -145,12 +145,11 @@ class SummernoteWidget extends HtmlField {
 
     _getPlaceholderButton() {
         const PLACEHOLDERS = [
-            { key: 'employee_name', label: 'Employee Name' },
-            { key: 'employee_job_title', label: 'Employee Job Title' },
-            { key: 'contract_date_start', label: 'Contract Start Date' },
-            { key: 'contract_date_end', label: 'Contract End Date' },
-            { key: 'contract_wage', label: 'Contract Wage' },
-            { key: 'contract_company', label: 'Company Name' },
+            { key: 'contract.employee_id.name', label: 'Employee Name' },
+            { key: 'contract.job_id.name', label: 'Job Position' },
+            { key: 'contract.wage', label: 'Contract Wage' },
+            { key: 'contract.company_id.name', label: 'Company Name' },
+            { key: 'employee.work_email', label: 'Employee Work Email' },
         ];
 
         return {
@@ -190,7 +189,7 @@ class SummernoteWidget extends HtmlField {
             item.innerHTML = `
                 <div style="font-weight: 500; color: #333;">${ph.label}</div>
                 <div style="font-family: monospace; color: #999; font-size: 11px; margin-top: 3px;">
-                    $\{${ph.key}\}
+                    {{ ${ph.key} }}
                 </div>
             `;
 
@@ -205,7 +204,7 @@ class SummernoteWidget extends HtmlField {
             item.onclick = () => {
                 const $element = window.$(this.element?.querySelector('textarea[name="content_html"]'));
                 if ($element.data('summernote')) {
-                    $element.summernote('insertText', `\${${ph.key}}`);
+                    $element.summernote('insertText', `{{ ${ph.key} }}`);
                 }
                 menu.remove();
             };

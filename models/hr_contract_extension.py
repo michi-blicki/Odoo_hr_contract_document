@@ -1,4 +1,7 @@
 # SPDX-License-Identifier: LGPL-3.0-or-later
+import base64
+from datetime import datetime
+
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
@@ -49,22 +52,23 @@ class HrContractDocumentExtension(models.Model):
                 )
 
             # Validate all snippets have valid placeholders
-            template.validate_placeholders()
+            template.validate_placeholders(contract=contract)
 
             # Render template content with contract data
             html_content = template._render_template_content(contract)
 
             # Generate PDF via QWeb report
-            pdf_binary, _ = self.env["ir.actions.report"]._render_qweb_pdf(
+            pdf_binary, _report_type = self.env["ir.actions.report"]._render_qweb_pdf(
                 "hr_contract_document.report_contract_document",
                 [contract.id],
                 data={"html_content": html_content},
             )
 
             # Create attachment record
+            generated_at = datetime.now().strftime("%Y-%m-%d_%H%M")
             filename = (
                 f"Contract_{contract.employee_id.name}_"
-                f"v{template.version}.pdf"
+                f"v{template.version}_{generated_at}.pdf"
             ).replace(" ", "_")
 
             self.env["ir.attachment"].create(
@@ -73,7 +77,7 @@ class HrContractDocumentExtension(models.Model):
                     "res_model": "hr.contract",
                     "res_id": contract.id,
                     "type": "binary",
-                    "datas": pdf_binary,
+                    "datas": base64.b64encode(pdf_binary),
                     "mimetype": "application/pdf",
                     "description": (
                         f"Contract document generated from template "

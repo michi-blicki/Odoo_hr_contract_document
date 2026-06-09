@@ -13,6 +13,7 @@
                     <field name="name"/>
                     <field name="sequence"/>
                     <field name="is_mandatory"/>
+                    <field name="force_page_break_before"/>
                     <field name="version"/>
                     <field name="state"/>
                 </list>
@@ -41,15 +42,22 @@
                                 <field name="name" required="1"/>
                                 <field name="sequence"/>
                                 <field name="is_mandatory"/>
+                                <field name="force_page_break_before"/>
                                 <field name="version" readonly="1"/>
                             </group>
                             <group>
-                                <field name="template_id"/>
-                                <field name="company_id" readonly="1"/>
+                                <field name="company_ids" widget="many2many_tags" readonly="0"/>
                             </group>
                         </group>
                         <group>
-                            <field name="content_html" widget="summernote"/>
+                            <div class="alert alert-info mt16 mb0" role="alert">
+                                <strong>Notes:</strong><br/>
+                                You can use placeholders to insert information from the employee record or other related models. 
+                                For example: <code>{{ employee.name }}</code>,  <code>{{ employee.department_id.name }}</code>, etc.<br />
+                                You can use conditions to include or exclude parts of content based on certain criteria.
+                                For example: <code>{% if employee.department_id.name == 'HR' %} ... {% endif %}</code>.
+                            </div>
+                            <field name="content_html" widget="html"/>
                         </group>
                         <group>
                             <field name="placeholder_fields" readonly="1"/>

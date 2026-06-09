@@ -1,7 +1,23 @@
 # Copilot Instructions – HR Contract Document Management Module
 
+## Mandatory Refactor Goal (2026-06)
+
+The placeholder engine is fully migrated to dynamic QWeb-style variables with `{{ ... }}` syntax.
+
+Implementation requirements:
+
+- Do not maintain a static whitelist of placeholder keys.
+- Expose `hr.contract` as the primary runtime object for template/snippet rendering.
+- Allow dynamic traversal from `hr.contract` through related models (Many2one/One2many/Many2many chains), including fields introduced by custom addons.
+- Keep compatibility with extensible Odoo installations where `hr.contract` / `hr.employee` are inherited and enriched.
+- Use `{{ expression }}` syntax in snippet content instead of `${placeholder}`.
+- Validate expressions for syntax/safety and fail with clear validation errors.
+- Render expressions at generation time against the selected contract context.
+
+This section is authoritative and supersedes all legacy `${...}` and static-whitelist examples in this document.
+
 **Module**: `hr_contract_document`  
-**Version**: 18.0.0.1.0  
+**Version**: 18.0.0.9.0  
 **Odoo Edition**: Community Edition 18  
 **Author**: Michael Blickenstorfer  
 **License**: LGPL-3

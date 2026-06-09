@@ -13,7 +13,7 @@
                     <field name="name"/>
                     <field name="version"/>
                     <field name="state"/>
-                    <field name="company_id"/>
+                    <field name="company_ids" widget="many2many_tags"/>
                     <field name="country_id"/>
                 </list>
             </field>
@@ -37,7 +37,7 @@
                             <group>
                                 <field name="name" required="1"/>
                                 <field name="version" readonly="1"/>
-                                <field name="company_id"/>
+                                <field name="company_ids" widget="many2many_tags"/>
                                 <field name="country_id"/>
                             </group>
                             <group>
@@ -47,11 +47,14 @@
 
                         <notebook>
                             <page string="Snippets">
-                                <field name="snippet_ids">
-                                    <list editable="bottom">
+                                <field name="snippet_ids"
+                                       domain="['|', ('company_ids', '=', False), ('company_ids', 'in', company_ids)]"
+                                       context="{'default_company_ids': company_ids}">
+                                    <list>
                                         <field name="sequence"/>
                                         <field name="name"/>
                                         <field name="is_mandatory"/>
+                                        <field name="force_page_break_before"/>
                                         <field name="state"/>
                                     </list>
                                 </field>

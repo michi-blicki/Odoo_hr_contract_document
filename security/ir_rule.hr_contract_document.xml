@@ -7,7 +7,16 @@
         <field name="groups" eval="[
             (4, ref('hr_contract_document.group_hr_contract_document_user')),
         ]" />
-        <field name="domain_force">[('company_id', 'in', user.company_ids.ids)]</field>
+        <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', user.company_ids.ids)]</field>
+    </record>
+
+    <record id="hr_contract_document_snippet_rule_multi_company" model="ir.rule">
+        <field name="name">HR Contract Document Snippet: multi-company access</field>
+        <field name="model_id" ref="model_hr_contract_document_snippet"/>
+        <field name="groups" eval="[
+            (4, ref('hr_contract_document.group_hr_contract_document_user')),
+        ]" />
+        <field name="domain_force">['|', ('company_ids', '=', False), ('company_ids', 'in', user.company_ids.ids)]</field>
     </record>
     
 </odoo>

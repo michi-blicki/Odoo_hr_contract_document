@@ -1,0 +1,824 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hr_contract_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-05 13:33+0000\n"
+"PO-Revision-Date: 2026-06-05 13:33+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "(v"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid ""
+"<br/>\n"
+"                            <strong>Beginn:</strong>"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid ""
+"<br/>\n"
+"                            <strong>Position:</strong>"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid ""
+"<br/>\n"
+"                        <strong>Arbeitsvertrag / Employment Contract</strong>"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "<br/><strong>Ende:</strong>"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "<strong>Mitarbeiter:</strong>"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_needaction
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_needaction
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_snippet_form
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_template_form
+msgid "Activate"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__active
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_attachment__state__active
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_snippet__state__active
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_template__state__active
+msgid "Active"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Angehängte Dokumente / Attachments"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_snippet_form
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_template_form
+msgid "Archive"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_attachment__state__archived
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_snippet__state__archived
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_template__state__archived
+msgid "Archived"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_attachment_form
+msgid "Attachment"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_attachment_count
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_attachment_count
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__document_ref_id
+msgid "Attachment Reference"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.actions.act_window,name:hr_contract_document.action_hr_contract_document_attachment
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__attachment_ids
+#: model:ir.ui.menu,name:hr_contract_document.menu_hr_contract_attachments
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_attachment_tree
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_template_form
+msgid "Attachments"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,comment:hr_contract_document.group_hr_contract_document_user
+msgid "Base access to HR contract document structures"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,comment:hr_contract_document.group_hr_contract_document_admin
+msgid "Can create contracts from templates; cannot modify templates"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_create_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__company_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__company_ids
+msgid "Companies"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__content_html
+msgid "Content"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_extension.py:0
+msgid "Contract Document Generated"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,name:hr_contract_document.group_hr_contract_document_signer
+msgid "Contract Document Signer"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract__document_template_id
+msgid "Contract Document Template"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.ui.menu,name:hr_contract_document.menu_hr_contract_document_root
+msgid "Contract Documents"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_template_form
+msgid "Contract Template"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.actions.act_window,name:hr_contract_document.action_hr_contract_document_template
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_template_tree
+msgid "Contract Templates"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_document_snippet.py:0
+msgid "Could not resolve expression '{{ %s }}': %s"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__country_id
+msgid "Country"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__create_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__create_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__create_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__create_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__create_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__create_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__create_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__create_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__css_style
+msgid "Custom CSS for Report"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Datum"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__display_name
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__display_name
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__display_name
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__display_name
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__template_id
+msgid "Document Template"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_snippet__state__draft
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_template__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract
+msgid "Employee Contract"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_attachment__language__en
+msgid "English"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_document_snippet.py:0
+msgid ""
+"Expression '{{ %s }}' accesses private attributes, which are not allowed."
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_document_snippet.py:0
+msgid "Expression '{{ %s }}' contains function calls, which are not allowed."
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_document_snippet.py:0
+msgid ""
+"Expression '{{ %s }}' uses unsupported root variable(s): %s. Use only "
+"'contract' and/or 'employee'."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_follower_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_follower_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_partner_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_partner_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__force_page_break_before
+msgid "Force Page Break Before"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_attachment__language__fr
+msgid "French"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,comment:hr_contract_document.group_hr_contract_document_specialist
+msgid "Full rights to manage templates, snippets, attachments"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.actions.act_window,name:hr_contract_document.action_hr_contract_create_wizard
+msgid "Generate Contract"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_create_wizard_form
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_employee_form_extension
+msgid "Generate Contract Document"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_create_wizard_form
+msgid "Generate PDF"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Generiert am"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_attachment__language__de
+msgid "German"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.actions.report,name:hr_contract_document.action_report_contract_document
+msgid "HR Contract Document"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,name:hr_contract_document.group_hr_contract_document_admin
+msgid "HR Contract Document Admin"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract_document_attachment
+msgid "HR Contract Document Attachment"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract_document_signer_rule
+msgid "HR Contract Document Signer Rule"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract_document_snippet
+msgid "HR Contract Document Snippet"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,name:hr_contract_document.group_hr_contract_document_specialist
+msgid "HR Contract Document Specialist"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract_document_template
+msgid "HR Contract Document Template"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,name:hr_contract_document.group_hr_contract_document_user
+msgid "HR Contract Document User"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__has_message
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__has_message
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__id
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__id
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__id
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__id
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__id
+msgid "ID"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_attachment__message_needaction
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_snippet__message_needaction
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_attachment__message_has_error
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_attachment__message_has_sms_error
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_snippet__message_has_error
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_snippet__message_has_sms_error
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__message_has_error
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_snippet__force_page_break_before
+msgid "If enabled, this snippet starts on a new PDF page."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_snippet__state__review
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_template__state__review
+msgid "In Review"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_document_snippet.py:0
+msgid "Invalid expression '{{ %s }}': %s"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_document_template.py:0
+msgid "Invalid expression in snippet '%s': %s"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_is_follower
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_is_follower
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__is_mandatory
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__is_mandatory
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__is_mandatory
+msgid "Is Mandatory"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields.selection,name:hr_contract_document.selection__hr_contract_document_attachment__language__it
+msgid "Italian"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__language
+msgid "Language"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__write_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__write_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__write_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__write_uid
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__write_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__write_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__write_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__write_date
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_has_error
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_has_error
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__name
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__name
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__name
+msgid "Name"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_extension.py:0
+msgid ""
+"No contract document template selected. Please select a template before "
+"generating the document."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_needaction_counter
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_needaction_counter
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_has_error_counter
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_has_error_counter
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_attachment__message_needaction_counter
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_snippet__message_needaction_counter
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_attachment__message_has_error_counter
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_snippet__message_has_error_counter
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__optional_attachment_ids
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_create_wizard_form
+msgid "Optional Attachments"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__optional_snippet_ids
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_create_wizard_form
+msgid "Optional Snippets"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_extension.py:0
+msgid "PDF has been generated and attached to the contract."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__template_id
+msgid "Parent Template"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Person"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__placeholder_fields
+msgid "Placeholders"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_signer_rule__relation_rule
+msgid "Python-like path expression, e.g. 'employee.parent_id.user_id'"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:res.groups,comment:hr_contract_document.group_hr_contract_document_signer
+msgid "Read-only access to printed and signed contract documents"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_snippet_form
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Rolle"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__message_has_sms_error
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__message_has_sms_error
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-javascript
+#: code:addons/hr_contract_document/static/src/xml/placeholder_picker.xml:0
+msgid "Select a placeholder to insert it at the cursor position:"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract__document_template_id
+msgid ""
+"Select the contract document template to use for this contract. Leave empty "
+"if using standard contract type."
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_snippet_form
+msgid "Send to Review"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__sequence
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Signaturfelder werden manuell ergänzt."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__relation_rule
+msgid "Signer Relation Rule"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_signer_rule_form
+msgid "Signer Rule"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.actions.act_window,name:hr_contract_document.action_hr_contract_document_signer_rule
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__signer_rule_ids
+#: model:ir.ui.menu,name:hr_contract_document.menu_hr_contract_signer_rules
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_signer_rule_tree
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_template_form
+msgid "Signer Rules"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_template_form
+msgid "Snippets"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__state
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__state
+msgid "State"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__state
+msgid "Status"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_create_wizard__contract_id
+msgid "Target Contract"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_signer_rule__template_id
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__template_id
+msgid "Template"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__name
+msgid "Template Name"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.ui.menu,name:hr_contract_document.menu_hr_contract_templates
+msgid "Templates"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_snippet_form
+msgid "Text Snippet"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.actions.act_window,name:hr_contract_document.action_hr_contract_document_snippet
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__snippet_ids
+#: model:ir.ui.menu,name:hr_contract_document.menu_hr_contract_snippets
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_snippet_tree
+msgid "Text Snippets"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_document_wizard.py:0
+msgid "The selected template is not active."
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-python
+#: code:addons/hr_contract_document/models/hr_contract_extension.py:0
+msgid ""
+"The selected template is not in 'Active' state. Please activate the template"
+" before using it."
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Unterschrift"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "Unterschriften / Signatures"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__version
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__version
+msgid "Version"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__version
+msgid "Version Tag"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_attachment__website_message_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_snippet__website_message_ids
+#: model:ir.model.fields,field_description:hr_contract_document.field_hr_contract_document_template__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_attachment__website_message_ids
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_snippet__website_message_ids
+#: model:ir.model.fields,help:hr_contract_document.field_hr_contract_document_template__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: hr_contract_document
+#: model:ir.model,name:hr_contract_document.model_hr_contract_create_wizard
+msgid "Wizard: Create Contract from Template"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.view_hr_contract_document_signer_rule_form
+msgid "employee.parent_id.user_id"
+msgstr ""
+
+#. module: hr_contract_document
+#: model_terms:ir.ui.view,arch_db:hr_contract_document.report_contract_document
+msgid "mit Vorlage-Version"
+msgstr ""
+
+#. module: hr_contract_document
+#. odoo-javascript
+#: code:addons/hr_contract_document/static/src/xml/placeholder_picker.xml:0
+msgid ""
+"💡 Tip: Make sure your cursor is positioned in the content editor before "
+"inserting."
+msgstr ""

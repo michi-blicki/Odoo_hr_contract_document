@@ -7,9 +7,9 @@
 
         <menuitem id="menu_hr_contract_document_root"
                 name="Contract Documents"
-                parent="hr_contract.hr_menu_contract"
+                parent="hr.menu_hr_root"
                 groups="hr_contract_document.group_hr_contract_document_user"
-                sequence="20"
+                sequence="95"
         />
     
     </data>

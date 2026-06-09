@@ -38,7 +38,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Human Resources/Employees',
-    'version': '18.0.0.4.0',
+    'version': '18.0.0.9.0',
     'application': True,
     'auto_install': False,
     'installable': True,
@@ -69,8 +69,6 @@
 
     'assets': {
         'web.assets_backend': [
-            'hr_contract_document/static/src/js/summernote_editor.js',
-            'hr_contract_document/static/src/xml/summernote_editor.xml',
             'hr_contract_document/static/src/css/contract_report.css',
         ],
     },

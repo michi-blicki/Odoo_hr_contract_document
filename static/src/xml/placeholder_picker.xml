@@ -16,7 +16,7 @@
                                 <strong t-esc="placeholder.label"/>
                             </div>
                             <div class="placeholder-key" style="color: #666; font-family: monospace; font-size: 12px; margin-top: 4px;">
-                                <code t-esc="`${'$'}{${placeholder.key}}`"/>
+                                <code t-esc="`{{ ${placeholder.key} }}`"/>
                             </div>
                             <div class="placeholder-description" style="color: #999; font-size: 11px; margin-top: 4px;">
                                 <t t-esc="placeholder.description"/>

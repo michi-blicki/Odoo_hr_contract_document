@@ -110,7 +110,7 @@ class SummernoteEditorField extends Component {
                     height: 400,
                     minHeight: 300,
                     maxHeight: null,
-                    placeholder: 'Enter contract content here. Type / for commands or use the toolbar above.',
+                    placeholder: 'Enter contract content here. Use expressions like {{ contract.employee_id.name }} or {{ contract.wage }}.',
                     focus: false,
                     disableDragAndDrop: false,
                     toolbar: [
@@ -140,7 +140,17 @@ class SummernoteEditorField extends Component {
                         'Helvetica Neue',
                         'Times New Roman',
                     ],
-                    fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '28', '32'],
+                    fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20'],
+                    colors: [
+                        ["#000000", "#555555", "#999999", "#CCCCCC", "#FFFFFF", "#3A0066", "#9900FF", "#FFC0CB"],
+                        ["#004D1A", '#39A641', "#00FF00", "#3DFF17", "#002060", "#0000FF", "#3399FF", "#00F0FF"],
+                        ["#990000", "#FF0000", "#FF007F", "#FF8080", "#FF6600", "#FFAA00", "#FFD700", "#FFFF00"],
+                    ],
+                    colorsName: [
+                        ["Reines Schwarz", "Dunkelgrau",    "Silbergrau",  "Hellgrau",     "Weiss",         "Dunkelviolett", "Leuchtviolett",  "Soft-Rosa"],
+                        ["Tannengrün",     "FCT Titelgrün", "Reines Grün", "FCT Hellgrün", "Tiefsee",       "Reines Blau",   "Jeansblau",      "Cyan-Leuchtblau"],
+                        ["Weinrot",        "Reines Rot",    "Neon-Rosa",   "Hellrot",      "System Orange", "System Gelb",   "Vibrantes Gelb", "Hellgelb"],
+                    ],
                     callbacks: {
                         onChange: (contents) => {
                             this._onEditorChange(contents);

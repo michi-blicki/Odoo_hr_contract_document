@@ -22,8 +22,12 @@ class HrContractDocumentTemplate(models.Model):
         string="Status",
         tracking=True,
     )
-    snippet_ids = fields.One2many(
-        "hr.contract.document.snippet", "template_id", string="Text Snippets"
+    snippet_ids = fields.Many2many(
+        "hr.contract.document.snippet",
+        "hr_contract_document_template_snippet_rel",
+        "template_id",
+        "snippet_id",
+        string="Text Snippets",
     )
     attachment_ids = fields.One2many(
         "hr.contract.document.attachment", "template_id", string="Attachments"
@@ -33,7 +37,14 @@ class HrContractDocumentTemplate(models.Model):
     )
 
     css_style = fields.Text(string="Custom CSS for Report")
-    company_id = fields.Many2one("res.company", string="Company", default=lambda self: self.env.company)
+    company_ids = fields.Many2many(
+        "res.company",
+        "hr_contract_document_template_company_rel",
+        "template_id",
+        "company_id",
+        string="Companies",
+        default=lambda self: [(6, 0, [self.env.company.id])],
+    )
     country_id = fields.Many2one("res.country", string="Country")
     active = fields.Boolean(default=True)
 
@@ -54,35 +65,31 @@ class HrContractDocumentTemplate(models.Model):
             template.state = "archived"
             template.active = False
 
-    def validate_placeholders(self):
-        """Ensure all placeholders from snippets exist in known contract context."""
-        allowed_keys = self._get_allowed_placeholder_keys()
+    def validate_placeholders(self, contract=None):
+        """Validate {{ expression }} syntax and optionally test evaluation on a contract."""
         for snip in self.snippet_ids:
-            unknown = [ph for ph in snip._extract_placeholders() if ph not in allowed_keys]
-            if unknown:
-                raise ValidationError(
-                    _("Invalid placeholders in snippet %s: %s") % (snip.name, ", ".join(unknown))
-                )
-
-    @api.model
-    def _get_allowed_placeholder_keys(self):
-        """Define whitelisted placeholders based on hr.contract + hr.employee fields."""
-        return [
-            "employee_name",
-            "employee_job_title",
-            "contract_date_start",
-            "contract_date_end",
-            "contract_wage",
-            "contract_company",
-        ]
+            for condition_expression in snip._extract_condition_expressions():
+                try:
+                    snip._validate_expression(condition_expression)
+                    if contract:
+                        snip._evaluate_condition_expression(condition_expression, contract)
+                except ValidationError as exc:
+                    raise ValidationError(
+                        _("Invalid condition in snippet '%s': %s") % (snip.name, exc)
+                    ) from exc
+            for expression in snip._extract_expressions():
+                try:
+                    snip._validate_expression(expression)
+                    if contract:
+                        snip._evaluate_expression(expression, contract)
+                except ValidationError as exc:
+                    raise ValidationError(
+                        _("Invalid expression in snippet '%s': %s") % (snip.name, exc)
+                    ) from exc
 
     def _render_template_content(self, contract):
         """Render all snippets and return concatenated HTML for QWeb."""
-        ctx = {
-            "employee": contract.employee_id,
-            "contract": contract,
-        }
         html_parts = []
         for snip in self.snippet_ids.sorted("sequence"):
-            html_parts.append(snip._render_placeholder_content(ctx))
+            html_parts.append(snip._render_placeholder_content(contract))
         return "\n".join(html_parts)
