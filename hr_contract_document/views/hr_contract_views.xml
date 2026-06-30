@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend Contract Form View -->
+    <record id="view_hr_contract_form_inherit" model="ir.ui.view">
+        <field name="name">hr.contract.form.inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Add button to button box -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_documents" 
+                        type="object" 
+                        class="oe_stat_button" 
+                        icon="fa-files-o">
+                    <field name="document_count" widget="statbutton" string="Documents"/>
+                </button>
+            </xpath>
+            
+            <!-- Add Documents tab -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Documents" name="documents">
+                    <group>
+                        <button name="action_generate_document" 
+                                string="Generate New Document" 
+                                type="object" 
+                                class="oe_highlight"
+                                icon="fa-plus"/>
+                    </group>
+                    <field name="document_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="template_id"/>
+                            <field name="document_date"/>
+                            <field name="state" widget="badge" 
+                                   decoration-success="state == 'signed'"
+                                   decoration-info="state == 'ready'"
+                                   decoration-warning="state == 'draft'"
+                                   decoration-muted="state == 'cancelled'"/>
+                            <button name="action_print_document" 
+                                    string="Print" 
+                                    type="object" 
+                                    icon="fa-print"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

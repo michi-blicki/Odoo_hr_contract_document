@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_hr_contract_template_form" model="ir.ui.view">
+        <field name="name">hr.contract.template.form</field>
+        <field name="model">hr.contract.template</field>
+        <field name="arch" type="xml">
+            <form string="Contract Template">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_documents" 
+                                type="object" 
+                                class="oe_stat_button" 
+                                icon="fa-file-text-o">
+                            <field name="document_count" widget="statbutton" string="Documents"/>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="e.g. Standard Employment Contract"/>
+                            <field name="version" placeholder="e.g. 1.0"/>
+                            <field name="template_type"/>
+                            <field name="language"/>
+                        </group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="active" widget="boolean_toggle"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="description" placeholder="Describe the purpose and usage of this template..."/>
+                    </group>
+                    <notebook>
+                        <page string="Template Content" name="content">
+                            <field name="content" widget="html" options="{'collaborative': true, 'resizable': true, 'height': 500}"/>
+                        </page>
+                        <page string="Text Blocks" name="text_blocks">
+                            <field name="text_block_ids">
+                                <tree>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="category"/>
+                                    <field name="language"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Placeholder Help" name="placeholder_help">
+                            <field name="placeholder_help" readonly="1" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_hr_contract_template_tree" model="ir.ui.view">
+        <field name="name">hr.contract.template.tree</field>
+        <field name="model">hr.contract.template</field>
+        <field name="arch" type="xml">
+            <tree string="Contract Templates">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="version"/>
+                <field name="template_type"/>
+                <field name="language"/>
+                <field name="document_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="view_hr_contract_template_search" model="ir.ui.view">
+        <field name="name">hr.contract.template.search</field>
+        <field name="model">hr.contract.template</field>
+        <field name="arch" type="xml">
+            <search string="Contract Templates">
+                <field name="name"/>
+                <field name="version"/>
+                <field name="template_type"/>
+                <field name="language"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="archived" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter string="Employment Contracts" name="employment" domain="[('template_type', '=', 'employment')]"/>
+                <filter string="Amendments" name="amendment" domain="[('template_type', '=', 'amendment')]"/>
+                <filter string="Terminations" name="termination" domain="[('template_type', '=', 'termination')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Template Type" name="group_template_type" context="{'group_by': 'template_type'}"/>
+                    <filter string="Language" name="group_language" context="{'group_by': 'language'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_contract_template" model="ir.actions.act_window">
+        <field name="name">Contract Templates</field>
+        <field name="res_model">hr.contract.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first contract template
+            </p>
+            <p>
+                Contract templates are used to generate standardized documents for employment contracts.
+                Use placeholders like ${employee.name} to insert dynamic data.
+            </p>
+        </field>
+    </record>
+</odoo>

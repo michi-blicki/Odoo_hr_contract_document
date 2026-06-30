@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Demo Text Blocks -->
+        <record id="text_block_confidentiality" model="hr.contract.text.block">
+            <field name="name">Confidentiality Clause</field>
+            <field name="code">confidentiality</field>
+            <field name="category">clause</field>
+            <field name="language">en_US</field>
+            <field name="sequence">10</field>
+            <field name="description">Standard confidentiality clause for employment contracts</field>
+            <field name="content"><![CDATA[
+                <p><strong>Confidentiality:</strong> The Employee agrees to maintain confidentiality of all proprietary information, 
+                trade secrets, and confidential business information of the Company, both during and after the term of employment.</p>
+            ]]></field>
+        </record>
+
+        <record id="text_block_termination" model="hr.contract.text.block">
+            <field name="name">Termination Clause</field>
+            <field name="code">termination</field>
+            <field name="category">clause</field>
+            <field name="language">en_US</field>
+            <field name="sequence">20</field>
+            <field name="description">Standard termination clause</field>
+            <field name="content"><![CDATA[
+                <p><strong>Termination:</strong> Either party may terminate this contract with a notice period of 30 days, 
+                or as otherwise required by applicable law.</p>
+            ]]></field>
+        </record>
+
+        <record id="text_block_signature" model="hr.contract.text.block">
+            <field name="name">Signature Block</field>
+            <field name="code">signature_block</field>
+            <field name="category">signature</field>
+            <field name="language">en_US</field>
+            <field name="sequence">100</field>
+            <field name="description">Standard signature block for contracts</field>
+            <field name="content"><![CDATA[
+                <br/><br/>
+                <table width="100%">
+                    <tr>
+                        <td width="50%">
+                            <p>Employee Signature:</p>
+                            <p>_________________________</p>
+                            <p>Name: ${employee.name}</p>
+                            <p>Date: ${current_date}</p>
+                        </td>
+                        <td width="50%">
+                            <p>Employer Signature:</p>
+                            <p>_________________________</p>
+                            <p>Company: ${company.name}</p>
+                            <p>Date: ${current_date}</p>
+                        </td>
+                    </tr>
+                </table>
+            ]]></field>
+        </record>
+
+        <!-- Demo Template -->
+        <record id="template_employment_standard" model="hr.contract.template">
+            <field name="name">Standard Employment Contract</field>
+            <field name="version">1.0</field>
+            <field name="template_type">employment</field>
+            <field name="language">en_US</field>
+            <field name="sequence">10</field>
+            <field name="description">Standard employment contract template with basic clauses</field>
+            <field name="text_block_ids" eval="[(6, 0, [ref('text_block_confidentiality'), ref('text_block_termination'), ref('text_block_signature')])]"/>
+            <field name="content"><![CDATA[
+                <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+                    <h1 style="text-align: center;">EMPLOYMENT CONTRACT</h1>
+                    
+                    <p style="text-align: right;">Date: ${current_date}</p>
+                    
+                    <h3>1. PARTIES</h3>
+                    <p>This Employment Contract is entered into between:</p>
+                    
+                    <p><strong>Employer:</strong><br/>
+                    ${company.name}<br/>
+                    ${company.street}<br/>
+                    ${company.zip} ${company.city}<br/>
+                    ${company.country_id.name}<br/>
+                    Phone: ${company.phone}<br/>
+                    Email: ${company.email}</p>
+                    
+                    <p><strong>Employee:</strong><br/>
+                    ${employee.name}<br/>
+                    ${employee.address_home_id.street}<br/>
+                    ${employee.address_home_id.zip} ${employee.address_home_id.city}<br/>
+                    ID Number: ${employee.identification_id}<br/>
+                    Email: ${employee.work_email}</p>
+                    
+                    <h3>2. POSITION AND DUTIES</h3>
+                    <p>The Employee is hired for the position of <strong>${contract.job_id.name}</strong> 
+                    in the <strong>${contract.department_id.name}</strong> department.</p>
+                    
+                    <h3>3. TERM OF EMPLOYMENT</h3>
+                    <p>This contract begins on <strong>${contract.date_start}</strong> 
+                    and continues until <strong>${contract.date_end}</strong>.</p>
+                    
+                    <h3>4. COMPENSATION</h3>
+                    <p>The Employee will receive a gross monthly salary of <strong>${contract.wage}</strong> EUR.</p>
+                    
+                    <h3>5. WORKING HOURS</h3>
+                    <p>The Employee's working schedule is: <strong>${contract.resource_calendar_id.name}</strong>.</p>
+                    
+                    <h3>6. CONFIDENTIALITY</h3>
+                    ${text_block.confidentiality}
+                    
+                    <h3>7. TERMINATION</h3>
+                    ${text_block.termination}
+                    
+                    <h3>8. GENERAL PROVISIONS</h3>
+                    <p>This contract is governed by the laws of the jurisdiction in which the Company operates. 
+                    Any amendments to this contract must be made in writing and signed by both parties.</p>
+                    
+                    <h3>9. SIGNATURES</h3>
+                    <p>By signing below, both parties acknowledge and agree to the terms set forth in this Employment Contract.</p>
+                    
+                    ${text_block.signature_block}
+                </div>
+            ]]></field>
+        </record>
+    </data>
+</odoo>
