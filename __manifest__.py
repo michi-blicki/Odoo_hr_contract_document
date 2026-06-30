@@ -30,8 +30,8 @@
     # Issuer Specification
     'author': "Michael Blickenstorfer",
     'website': "https://www.blicki.ch",
-    'license': "LGPL-3",
-    #'price': 120.00,
+    'license': "OPL-1",
+    #'price': 150.00,
     #'currency': "CHF",
 
     # Categories can be used to filter modules in modules listing
